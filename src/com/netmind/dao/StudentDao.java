@@ -17,4 +17,9 @@ public class StudentDao {
 		return true;
 	}
 
+	public boolean addStudentToFile(Student student) {
+		studentList.add(student);
+		return true;
+	}
+
 }
