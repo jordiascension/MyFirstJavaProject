@@ -14,11 +14,7 @@ public class NetmindObject {
 		this.uuid = uuid;
 	}
 
-	/**
-	 * @return the id
-	 */
 	public UUID getUUId() {
-
 		return uuid;
 	}
 }
