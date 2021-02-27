@@ -1,6 +1,8 @@
 package com.netmind.presentation;
 
+import java.io.IOException;
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.Scanner;
 
 import com.netmind.business.StudentBl;
@@ -27,7 +29,13 @@ public class StudentConsole {
 			case ADD_STUDENT:
 				Student student = new Student();
 				addNewStudent(student, scanner);
-				studentBl.add(student);
+				try {
+					studentBl.add(student);
+				} catch (IOException e) {
+					// TODO Auto-generated catch block
+					System.out.println(e.getMessage());
+					e.printStackTrace();
+				}
 				break;
 			case EXIT:
 				System.out.println("Good Bye!!");
@@ -55,6 +63,9 @@ public class StudentConsole {
 		student.setSurname(scanner.nextLine());
 
 		System.out.println("Introduce Fecha de nacimiento: ");
-		student.setDateOfBirth(LocalDate.parse(scanner.nextLine()));
+		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy");
+		LocalDate dateOfBirth = LocalDate.parse(scanner.nextLine(), formatter);
+
+		student.setDateOfBirth(dateOfBirth);
 	}
 }
