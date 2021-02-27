@@ -2,8 +2,6 @@ package com.netmind.business;
 
 import java.time.LocalDate;
 import java.time.Period;
-import java.time.ZoneId;
-import java.util.Date;
 
 import com.netmind.dao.StudentDao;
 import com.netmind.model.Student;
@@ -18,9 +16,8 @@ public class StudentBl {
 		return studentDao.add(student);
 	}
 
-	private int calculateAge(Date dateOfBirth) {
-		Period edad = Period.between(dateOfBirth.toInstant()
-				.atZone(ZoneId.systemDefault()).toLocalDate(), LocalDate.now());
+	private int calculateAge(LocalDate dateOfBirth) {
+		Period edad = Period.between(dateOfBirth, LocalDate.now());
 		return edad.getYears();
 	}
 }

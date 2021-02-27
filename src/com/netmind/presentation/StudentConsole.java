@@ -1,7 +1,5 @@
 package com.netmind.presentation;
 
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.util.Scanner;
 
 import com.netmind.business.StudentBl;
@@ -10,6 +8,7 @@ import com.netmind.model.Student;
 
 public class StudentConsole {
 
+	@SuppressWarnings("static-access")
 	public static void selectOperation() {
 		Scanner scanner = new Scanner(System.in);
 		StudentBl studentBl = new StudentBl();
@@ -41,13 +40,13 @@ public class StudentConsole {
 
 	private static void showPrincipalMenu() {
 		System.out.println("¿Qué opción quiere seleccionar?");
-		System.out.println("0.Agregar un nuevo estudiante");
-		System.out.println("1.Calcular el estudiante con mayor edad");
-		System.out.println("2.Salir del programa");
+		System.out.println("1.Agregar un nuevo estudiante");
+		System.out.println("2.Calcular el estudiante con mayor edad");
+		System.out.println("3.Salir del programa");
 	}
 
 	private static void addNewStudent(Student student, Scanner scanner) {
-		System.out.println("0.Agregar un nuevo estudiante");
+		System.out.println("1.Agregar un nuevo estudiante");
 		System.out.println("Introduce nombre: ");
 		student.setName(scanner.nextLine());
 
@@ -55,12 +54,10 @@ public class StudentConsole {
 		student.setSurname(scanner.nextLine());
 
 		System.out.println("Introduce Fecha de nacimiento: ");
-		try {
-			student.setDateOfBirth(new SimpleDateFormat("dd/MM/yyyy")
-					.parse(scanner.nextLine()));
-		} catch (ParseException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+		/*
+		 * try { // student.setDateOfBirth(new SimpleDateFormat("dd/MM/yyyy") //
+		 * .parse(scanner.nextLine())); } catch (ParseException e) { // TODO
+		 * Auto-generated catch block e.printStackTrace(); }
+		 */
 	}
 }
