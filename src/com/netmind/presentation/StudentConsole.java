@@ -1,5 +1,6 @@
 package com.netmind.presentation;
 
+import java.time.LocalDate;
 import java.util.Scanner;
 
 import com.netmind.business.StudentBl;
@@ -54,10 +55,6 @@ public class StudentConsole {
 		student.setSurname(scanner.nextLine());
 
 		System.out.println("Introduce Fecha de nacimiento: ");
-		/*
-		 * try { // student.setDateOfBirth(new SimpleDateFormat("dd/MM/yyyy") //
-		 * .parse(scanner.nextLine())); } catch (ParseException e) { // TODO
-		 * Auto-generated catch block e.printStackTrace(); }
-		 */
+		student.setDateOfBirth(LocalDate.parse(scanner.nextLine()));
 	}
 }
