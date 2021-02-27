@@ -38,9 +38,9 @@ public class StudentDaoIntegrationTest {
 		File fichero = new File("StudentTest.txt");
 		String[] alumnostring = null;
 
-		try (Scanner s = new Scanner(fichero)) {
-			while (s.hasNextLine() && encontrado == false) {
-				String linea = s.nextLine();
+		try (Scanner scanner = new Scanner(fichero)) {
+			while (scanner.hasNextLine() && encontrado == false) {
+				String linea = scanner.nextLine();
 				alumnostring = linea.split(",");
 
 				if (alumnostring[0].equals(uuid.toString())) {
